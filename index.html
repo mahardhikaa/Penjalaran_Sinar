@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulasi Lensa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="lensa"></div>
+        <div class="grafik"></div>
+        <div class="pusat">
+            <div class="benda" id="Benda"></div>
+            <div class="bayangan" id="Bayangan"></div>
+        </div>
+        
+    </div>
+    <div class="hitung">
+        <form >
+            <div class="sifat" id="Sifat"></div>
+            <div class="input">
+                <form>
+                    <label>Input</label> <br>
+                    <label for="tinggiBenda">Tinggi benda: </label>
+                    <input type="text" id="tinggiBenda" style="width: 100px;"> cm <br>
+                    <label for="jarakBenda">Jarak Benda :</label>
+                    <input type="text" id="jarakBenda" style="width: 100px;"> cm <br>
+                    <label for="fokus">Fokus  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+                    <input type="text" id="fokus" style="width: 100px;"> cm
+                </form>
+            </div>
+            <div class="output">
+                <form>
+                    <label>Output</label> <br>
+                    <p id="output"></p>
+                </form>
+            </div>
+            <div class="apply">
+                <input type="button" value="apply" style="width: 80px; height: 25px;" onclick="hasil()">
+            </div>
+        </form>
+    </div>
+    <div class="ket satu"><div class="tulis">Benda</div></div>
+    <div class="ket dua"><div class="tulis">Bayangan</div></div>
+
+    <div class="judul">SIMULASI LENSA CEMBUNG</div>
+</body>
+
+<script>
+    function hasil(){
+        var tinggi = document.getElementById("tinggiBenda").value;
+        var jarak = document.getElementById("jarakBenda").value;
+        var focus = document.getElementById("fokus").value;
+        var hasilJarak = (parseFloat(focus) * parseFloat(jarak)) / (parseFloat(focus) - parseFloat(jarak));
+        var hasilTinggi = (parseFloat(hasilJarak) * parseFloat(tinggi)) / parseFloat(jarak);
+
+        document.getElementById("output").innerHTML = "Jarak bayangan: " + hasilJarak.toFixed(2)*-1 + " cm" + "<br>" + "Tinggi Bayangan: " + hasilTinggi.toFixed(2)*-1 + " cm";
+        
+
+        if(parseFloat(focus) >= parseFloat(jarak)){
+            document.getElementById("Sifat").innerHTML = "Sifat Bayangan<br>- Maya<br>- Tegak<br>- Diperbesar";
+            document.getElementById("Benda").style.cssText = " transition: 1s; width: 30px; height: " + parseFloat(tinggi)*5 + "px; bottom: 5px; transform: translateX(-" + parseFloat(jarak)*10 + "px);";
+            document.getElementById("Bayangan").style.cssText = " transition: 1s; width: 30px; height: " + hasilTinggi*5 + "px; bottom: 5px; transform: translateX(" + hasilJarak*-10 + "px); opacity: 0.8";
+        }
+        else if(parseFloat(focus) < parseFloat(jarak) && parseFloat(focus)*2 > parseFloat(jarak)){
+            hasilTinggi = -1 * hasilTinggi;
+            document.getElementById("Sifat").innerHTML = "Sifat Bayangan<br>- Nyata<br>- Terbalik<br>- Diperbesar";
+            document.getElementById("Benda").style.cssText = " transition: 1s; width: 30px; height: " + parseFloat(tinggi)*5 + "px; bottom: 5px; transform: translateX(-" + parseFloat(jarak)*10 + "px);";
+            document.getElementById("Bayangan").style.cssText = "transition: 1s; width: 30px; height: " + hasilTinggi*5 + "px;  transform: translateX(" + hasilJarak*-10 + "px); top: 5px;";
+        }
+        else if(parseFloat(jarak) > parseFloat(focus)*2){
+            hasilTinggi = -1 * hasilTinggi;
+            document.getElementById("Sifat").innerHTML = "Sifat Bayangan<br>- Nyata<br>- Terbalik<br>- Diperkecil";
+            document.getElementById("Benda").style.cssText = " transition: 1s; width: 30px; height: " + parseFloat(tinggi)*5 + "px; bottom: 5px; transform: translateX(-" + parseFloat(jarak)*10 + "px);";
+            document.getElementById("Bayangan").style.cssText = "transition: 1s; width: 30px; height: " + hasilTinggi*5 + "px;  transform: translateX(" + hasilJarak*-10 + "px); top: 5px;";
+        }
+        else{
+            hasilTinggi = -1 * hasilTinggi;
+            document.getElementById("Sifat").innerHTML = "Sifat Bayangan<br>- Nyata<br>- Terbalik<br>- Sama besar";
+            document.getElementById("Benda").style.cssText = " transition: 1s; width: 30px; height: " + parseFloat(tinggi)*5 + "px; bottom: 5px; transform: translateX(-" + parseFloat(jarak)*10 + "px);";
+            document.getElementById("Bayangan").style.cssText = "transition: 1s; width: 30px; height: " + hasilTinggi*5 + "px;  transform: translateX(" + hasilJarak*-10 + "px); top: 5px;";
+        }
+
+    }
+</script>
+
+</html>
