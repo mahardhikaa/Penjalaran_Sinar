@@ -10,3 +10,5 @@ cara menggunakan file
 6. FINISHHHHHHH
 
 SELAMAT DICOBAA
+
+nb: simulasi web ini belom responsif, jadi usahakan gunakan browser dengan tampilan full screen yaa
