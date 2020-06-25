@@ -11,4 +11,4 @@ cara menggunakan file
 
 SELAMAT DICOBAA
 
-nb: simulasi web ini belom responsif, jadi usahakan gunakan browser dengan tampilan full screen yaa
+nb: simulasi web ini belom responsif, jadi usahakan gunakan browser desktop dengan tampilan full screen yaa
