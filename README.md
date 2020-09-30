@@ -19,7 +19,9 @@ Bermula dari tugas mata kuliah optik berakhir menjadi project kecil kecilan. Pro
 buka site github dengan cara [klik_disini](https://mahardhikaa.github.io/Penjalaran_Sinar)
 
 ## Screenshoot
+![](https://github.com/mahardhikaa/Penjalaran_Sinar/blob/master/screenshoot/optik.png)
 
-# SELAMAT DICOBAA
-
+### Catatan
 nb: simulasi web ini belom responsive, jadi usahakan gunakan browser desktop dengan tampilan full screen yaa
+
+## Selamat Mencoba
